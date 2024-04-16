@@ -39,6 +39,24 @@ contents1b = [n.strip() for n in contents1]
 with open(file2) as list2:
     contents2 = list2.readlines()
 contents2b = [n.strip() for n in contents1]
-#results = [n for n in contents1b if contents1b.__contains__(n)]
+# results = [n for n in contents1b if contents1b.__contains__(n)]
 results = [int(n) for n in contents1b if n in contents2b]
 print(results)
+
+# dictionary comprehension
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Frank']
+import random
+student_scores = {name: random.randint(1,100) for name in names}
+print(student_scores)
+passing_students={student:score for (student,score) in student_scores.items() if score > 59}
+print(passing_students)
+
+# create a dictionary by word with length of the word
+input = "What is the airspeed velocity of an unladen swallow?"
+the_dictionary={word:len(word) for word in input.split(" ")}
+print(the_dictionary)
+
+# given a dict of days with Celsius convert to Fahrenheit
+weather_c = {"Monday":12, "Tuesday":14, "Wednesday": 15, "Thursday":14, "Friday":12, "Saturday": 20, "Sunday":22}
+weather_f = {day:((temp * 9/5) +32) for (day,temp) in weather_c.items()}
+print(weather_f)
