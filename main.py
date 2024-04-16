@@ -60,3 +60,21 @@ print(the_dictionary)
 weather_c = {"Monday":12, "Tuesday":14, "Wednesday": 15, "Thursday":14, "Friday":12, "Saturday": 20, "Sunday":22}
 weather_f = {day:((temp * 9/5) +32) for (day,temp) in weather_c.items()}
 print(weather_f)
+
+# convert to NATO alphabet project
+student_dict = {
+    "student": ["Angela", "James", "Lily"],
+    "score": [56, 76, 98]
+}
+
+# nato alphabet converter
+import pandas
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+# 1. Create a dictionary in this format:
+all_data={row.letter:row.code for (index, row) in data.iterrows()}
+print(all_data)
+# 2. Create a list of the phonetic code words from a word that the user inputs.
+word = "Thomas"
+word_results = {n for n in word}
+final = {all_data[n.upper()] for n in word_results}
+print(final)
