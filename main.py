@@ -79,3 +79,5 @@ word = "Thomas"
 word_results = {n for n in word}
 final = {all_data[n.upper()] for n in word_results}
 print(final)
+
+# create the commit and push
