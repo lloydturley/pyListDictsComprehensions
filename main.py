@@ -52,8 +52,8 @@ passing_students={student:score for (student,score) in student_scores.items() if
 print(passing_students)
 
 # create a dictionary by word with length of the word
-input = "What is the airspeed velocity of an unladen swallow?"
-the_dictionary={word:len(word) for word in input.split(" ")}
+input_answer = "What is the airspeed velocity of an unladen swallow?"
+the_dictionary={word:len(word) for word in input_answer.split(" ")}
 print(the_dictionary)
 
 # given a dict of days with Celsius convert to Fahrenheit
@@ -75,9 +75,15 @@ all_data={row.letter:row.code for (index, row) in data.iterrows()}
 print(all_data)
 
 # 2. Create a list of the phonetic code words from a word that the user inputs.
-word = "Thomas"
-word_results = {n for n in word}
-final = {all_data[n.upper()] for n in word_results}
-print(final)
-
+complete = False
+while not complete:
+    try:
+        word = input("Enter a word:  ").upper()
+        word_results = {n for n in word}
+        final = {all_data[n.upper()] for n in word_results}
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+    else:
+        complete = True
+        print(final)
 # create the commit and push
